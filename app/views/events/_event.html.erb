@@ -1,0 +1,15 @@
+<div class="card" style="width: 20rem;">
+    <h5 class="card-header"><%= event.event_name %></h5>
+    <div class="card-body">
+        <%= event.event_category %>
+        </br>
+        <%= event.created_at.strftime('%d-%b-%y') %>
+        </br>
+        <%= event.user %>
+    </div>
+    <div class="card-footer">
+        <%= link_to 'Show', event, class:'btn btn-sm btn-primary' %> 
+        <%= link_to 'Edit', edit_event_path(event), class:'btn btn-sm btn-warning' %>
+        <%= link_to 'Destroy', event, class:'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+</div>

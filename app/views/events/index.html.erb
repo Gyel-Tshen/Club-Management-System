@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+  <div class="col">
+    </div>
+    <div class="col">
+      <h4>List of Events </h4>
+    </div>
+    <div class="col ">
+      <%=link_to 'New Event', new_event_path %>
+    </div>
+  </div>
+</div>
+</br>
+
+  <div class="row">
+     <% @events.each do |event| %>
+    <div class="col-sm-4">
+   
+      <%= render 'events/event', event: event%>
+    
+    </div>
+    <% end %>
+  </div>
+  </br>
+
+
+
+
+
