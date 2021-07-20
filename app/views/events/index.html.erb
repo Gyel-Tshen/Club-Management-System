@@ -1,24 +1,40 @@
 <div class="container">
   <div class="row">
-  <div class="col">
+    <div class="col text-center ">
+      <h4 class="text-center">List of Events </h4>
     </div>
-    <div class="col">
-      <h4>List of Events </h4>
+    <div class="col-2 ">
+      <% if current_user.has_role?(:admin) %>
+        <%=link_to 'New Event', new_event_path %>
+      <%end%>
     </div>
-    <div class="col ">
-      <%=link_to 'New Event', new_event_path %>
-    </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to "All", events_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Upcoming Events", events_path(event_category: "UPCOMING"), class:"nav-link is-primary" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Past Events", events_path(event_category: "PAST"), class:"nav-link is-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Current Events", events_path(event_category: "CURRENT"), class:"nav-link is-warning" %>
+        </li>
+      </ul>
   </div>
 </div>
-</br>
-
-  <div class="row">
-     <% @events.each do |event| %>
-    <div class="col-sm-4">
-   
-      <%= render 'events/event', event: event%>
+  </br>
+  <div class="row justify-content-center">
     
-    </div>
+    
+    <% @events.each do |event| %>
+      <div class="col-sm-4">
+    
+        <%= render 'events/event', event: event%>
+        </br>
+      </div>
+    
     <% end %>
   </div>
   </br>

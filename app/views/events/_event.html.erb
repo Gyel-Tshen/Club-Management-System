@@ -1,15 +1,25 @@
-<div class="card" style="width: 20rem;">
+<div class="card" style="width: 22rem;">
     <h5 class="card-header"><%= event.event_name %></h5>
     <div class="card-body">
         <%= event.event_category %>
         </br>
         <%= event.created_at.strftime('%d-%b-%y') %>
         </br>
-        <%= event.user %>
+        <%= event.user.username %>
     </div>
     <div class="card-footer">
-        <%= link_to 'Show', event, class:'btn btn-sm btn-primary' %> 
-        <%= link_to 'Edit', edit_event_path(event), class:'btn btn-sm btn-warning' %>
-        <%= link_to 'Destroy', event, class:'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+        Registered By:
+        <%=event.bookings_count %> users
+        </br>
+
+        <%= booking_button(event)  %>
+        
     </div>
+    <% if policy(event).edit? %>
+        <div class="card-footer ">
+            <%= button_to 'Show', event, class:'btn btn-sm btn-primary col-sm-3 ' %> 
+            <%= button_to 'Edit', edit_event_path(event), class:'btn btn-sm btn-warning col-sm-3 ' %> 
+            <%= button_to "Destroy", event, :method => :delete, data: {:confirm => "Are you sure?"}, :class => 'btn btn-sm btn-danger col-sm-3' %>
+        </div>
+    <%end%>
 </div>

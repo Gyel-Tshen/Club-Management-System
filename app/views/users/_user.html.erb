@@ -1,13 +1,48 @@
-<div class="card" style="width: 20rem;">
-    <h5 class="card-header"><%= event.event_name %></h5>
-    <div class="card-body">
-        <%= user.email %>
-        </br>
-        
-    </div>
-    <div class="card-footer">
-        <%= link_to 'Show', event, class:'btn btn-sm btn-primary' %> 
-        <%= link_to 'Edit', edit_event_path(event), class:'btn btn-sm btn-warning' %>
-        <%= link_to 'Destroy', event, class:'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+<div class="row justify-content-center">
+    <div class="col-4">
+
+        <div class="card">
+        <div class="card-header">
+            <%= link_to user.email, user_path(user) %>
+        </div>
+
+        <div class="body">
+            <%= image_tag(current_user.avatar_thumbnail) %> 
+            Name: <%= user.name %> </br>
+            Company: <%= user.company %> </br>
+            Designation: <%= user.designation%> </br>
+            
+        </div>
+        <div class="body">
+            Address:
+            <%= user.address%>
+        </div>
+
+
+        <div class="card-footer">
+            Signed Up
+                <%= time_ago_in_words(user.created_at) %>
+            ago
+        </div>
+
+        <div class="card-footer">
+            confirmed email?
+            <%if user.confirmed_at.present?%>
+                yes
+            <% else %>
+                No
+            <% end %>
+        </div>
+        <div class="card-footer">
+            <% user.roles.each do |role|%>
+                <%= role.name%>
+            <% end %>
+            <% if policy(user).edit? %>
+                <%= link_to 'Edit Roles', edit_user_path(user), class: 'btn btn-warning'%>
+            <%end%>
+        </div>
     </div>
 </div>
+

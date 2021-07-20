@@ -1,0 +1,21 @@
+<% content_for :title do %>
+    Editing <%= @booking.to_s%>
+<%end%>
+
+<div class: "card">
+    <div class="card-header">
+        <h3> Editing Booking </h3>
+    </div>
+    <div class = "card-body">
+        <%= render 'form', booking: @booking %>
+    </div>
+
+    <div class = "card-body">
+        
+<%= link_to 'Show', @booking %> |
+<%= link_to 'Back', bookings_path %>
+
+    </div>
+</div>
+
+

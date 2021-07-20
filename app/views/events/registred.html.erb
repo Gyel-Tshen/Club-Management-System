@@ -1,0 +1,12 @@
+<h4 class="text-center">Events you have Registred</h4>
+
+<div class="row justify-content-center">
+    <% @events.each do |event| %>
+      <div class="col-sm-4">
+    
+        <%= render 'events/event', event: event%>
+        </br>
+      </div>
+    
+    <% end %>
+</div>

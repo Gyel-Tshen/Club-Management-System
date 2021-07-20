@@ -1,13 +1,18 @@
 
-<p>
-  <strong>Event name:</strong>
-  <%= @event.event_name %>
-</p>
 
+<div class="card" style="width: 30rem;">
+<p class="card-header">
+  <strong>Event name:</strong>
+  <%= :event_name %>
+</p>
+<div class="card-body">
 <p>
   <strong>Event category:</strong>
-  <%= @event.event_category %>
+  <%= :event_category %>
 </p>
+</div>
 </br>
-<%= link_to 'Edit', edit_event_path(@event), class:"btn btn-secondary" %> |
+<div class="card-footer">
+<%= link_to 'Edit', edit_event_path, class:"btn btn-secondary" %> |
 <%= link_to 'Back', events_path, class:"btn btn-secondary" %>
+</div>
