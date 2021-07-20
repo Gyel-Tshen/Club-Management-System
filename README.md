@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version-> 2.7.2
 
 * System dependencies
 
@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* **Two role base login **
+* first sign in user is default **admin**
+* rest are **normal user**.
+* Admin can edit user roles as well. 
+* 
+
+
